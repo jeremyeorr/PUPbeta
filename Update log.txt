@@ -1,0 +1,51 @@
+Updates 
+
+future updates
+--Analyze data regardless of events. This will be needed for anatomical measures.
+
+
+20150818
+
+Added AliceSleepwareG3 option which uses .rml for sleep and events. 
+
+bugfix: Analyze.m is altered so that windows containing unknown sleep stages are not analyzed (stage = -1).
+
+Ratings fixes: 
+1.) 3rd and 4th numeric col in AnalyzeDataSpreadsheet.xlsx were unlabelled. 3rd col now reflects whether user would like to rate data.
+2.) undo function left a value of 0.9 in the rated window.
+
+
+20150427
+
+Added instructions for using Spike and Profusion XML
+
+
+20150415
+
+Added Ratings feature to the user interface. Feature has not yet been tested.
+
+
+20140912
+
+bugfix: ConvertToMat line 8 changed from "fname=[Filenames{1}(1:end-4) '.mat'];" to "fname=[Filenames{n}(1:end-4) '.mat'];"
+
+Output filenames changed to "<...>_XHz"
+
+line 348 of ConvertToMat changed to exist(char(temp(n)),'var') from exist(char(temp(n))) since ECG is a function as well as a candidate variable.
+
+
+20140815
+
+ConvertToMat can now handle data from Spike.
+
+Mixed events are converted (optionally) as a separate channel, rather than lumping these with obstructive apneas. The option to do this is set in ConvertDataSPreadsheet
+
+Analysis.m now exports the longestWake duration for each epoch (for later inclusion/exclusion as per the user).
+
+Longest wake to include is default 30 sec and set in AnalyzeDataSpreadsheet.
+
+Ratings is new functionality that opens each figure and allows you to rate each epoch. Ratings are stored in the appropriate Report. Ratings requires that figures were exported.
+
+The Report now shows longestWake and ratings information
+
+
